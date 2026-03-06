@@ -10,9 +10,6 @@ The goal of this project is to practice:
 - Behavior Driven Development (BDD) with Cucumber
 - SQLite persistence
 
-Usage:
-npm run start_project
-
 ---
 
 # 1️ FizzBuzz (Algorithm practice)
@@ -23,8 +20,11 @@ The goal is to iterate through a sequence of numbers and apply the following rul
 
 - If a number is divisible by 3, return "Fizz"
 - If a number is divisible by 5 return "Buzz"
-- If a number is divisible by both 3 and 5**, return "FizzBuzz"
+- If a number is divisible by both 3 and 5, return "FizzBuzz"
 - Otherwise, return the number itself
+
+Usage:
+npm run start_project
 
 --------------------------------------------------------------
 
