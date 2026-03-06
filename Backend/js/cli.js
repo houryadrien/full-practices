@@ -15,10 +15,10 @@ const VEHICLE_REGISTERED = "Vehicle registered";
 const VEHICLE_PARKED =  "Vehicle parked";
 const VEHICLE_CREATED =  "Vehicle created";
 //SQLITE const
-const CREATE_FLEET_SQLITE = "create-fleet";
-const CREATE_VEHICLE_SQLITE = "create-vehicle";
-const REGISTER_VEHICLE_SQLITE = "register-vehicle";
-const LOCALIZE_VEHICLE_SQLITE = "localize-vehicle";
+const CREATE_FLEET_SQLITE = "create-fleet-sqlite";
+const CREATE_VEHICLE_SQLITE = "create-vehicle-sqlite";
+const REGISTER_VEHICLE_SQLITE = "register-vehicle-sqlite";
+const LOCALIZE_VEHICLE_SQLITE = "localize-vehicle-sqlite";
 // GLOBAL const
 const PREFIX_FLEET = "fleet-";
 const DEFAULT_ERROR = "Unknow command, please retry.";
