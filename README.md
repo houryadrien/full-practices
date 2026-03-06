@@ -10,6 +10,9 @@ The goal of this project is to practice:
 - Behavior Driven Development (BDD) with Cucumber
 - SQLite persistence
 
+Usage:
+npm run start_project
+
 ---
 
 # 1️ FizzBuzz (Algorithm practice)
