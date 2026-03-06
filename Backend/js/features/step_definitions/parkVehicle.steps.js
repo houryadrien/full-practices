@@ -13,29 +13,38 @@ let vehicle;
 let location;
 let command;
 const fleetRepository = new FleetRepository();
+command = new ParkVehicleCommand(fleetRepository);  
+let commandRegister = new RegisterVehicleCommand(fleetRepository);
 
-Given("PARK - My fleet MAP", function () {
+Given("PARK - My fleet MAP", async function () {
   fleet = new Fleet("fleet11", "Adh");
-  command = new ParkVehicleCommand(fleetRepository);
+  fleetRepository.save(fleet);
 })
 
 Given("PARK - A vehicle MAP", function () {
   vehicle = new Vehicle("BS829RP");
 });
 
-Given("PARK - I have registered this vehicle into my fleet MAP", function () {
-  fleet.registerVehicle(vehicle);
-});
-
 Given("PARK - A location MAP", function () {
   location = new Location(48.85, 2.35, 123);
 });
 
-When("PARK - I park my vehicle at this location MAP", function () {
-  vehicle.park(location);
+Given("PARK - I have registered this vehicle into my fleet MAP", async function () {
+    await commandRegister.save(fleet.fleetId, vehicle.plateNumber)
 });
 
-Then("PARK - The known location of my vehicle should verify this location MAP", function () {
-  const currentLocation = vehicle.getCurrentLocation();
-  assert.ok(currentLocation.equals(location));
+When("PARK - I park my vehicle at this location MAP", async function () {
+  await command.save(
+      fleet.fleetId,
+      vehicle.plateNumber,
+      location.lng,
+      location.lat,
+      location.alt
+    );
+});
+
+Then("PARK - The known location of my vehicle should verify this location MAP", async function () {
+  const savedFleet = await fleetRepository.getById("fleet11");
+  const vehicule = savedFleet.getVehicle(vehicle.plateNumber);
+  assert(vehicule.location.equals(location))
 });
